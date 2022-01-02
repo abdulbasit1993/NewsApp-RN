@@ -1,37 +1,49 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import moment from 'moment';
 import placeholderImage from '../assets/placeholder_img.png';
+import {useNavigation} from '@react-navigation/native';
 
 const deviceWidth = Dimensions.get('window').width;
 
 const NewsCard = ({item}) => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.cardView}>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.author}>{item.author}</Text>
-      {item.urlToImage ? (
-        <Image
-          style={styles.image}
-          resizeMode="contain"
-          source={{
-            uri: item.urlToImage,
-          }}
-        />
-      ) : (
-        <Image
-          style={styles.image}
-          resizeMode="contain"
-          source={placeholderImage}
-        />
-      )}
+    <TouchableOpacity
+      onPress={() => navigation.navigate('NewsDetail', {url: item.url})}>
+      <View style={styles.cardView}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.author}>{item.author}</Text>
+        {item.urlToImage ? (
+          <Image
+            style={styles.image}
+            resizeMode="contain"
+            source={{
+              uri: item.urlToImage,
+            }}
+          />
+        ) : (
+          <Image
+            style={styles.image}
+            resizeMode="contain"
+            source={placeholderImage}
+          />
+        )}
 
-      <Text style={styles.desc}>{item.description}</Text>
-      <Text style={styles.date}>
-        Published at:
-        {moment(item.publishedAt).format('ddd, MMM D, YYYY h:mma')}
-      </Text>
-    </View>
+        <Text style={styles.desc}>{item.description}</Text>
+        <Text style={styles.date}>
+          Published at:{' '}
+          {moment(item.publishedAt).format('ddd, MMM D, YYYY h:mma')}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

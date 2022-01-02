@@ -4,12 +4,15 @@ import axios from 'axios';
 import NewsCard from '../components/NewsCard';
 import {API_KEY} from '@env';
 
-const News = () => {
+const News = ({route}) => {
   const [data, setData] = useState(null);
+  const country = route.params.country;
 
   const getNews = async () => {
     await axios
-      .get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
+      .get(
+        `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}`,
+      )
       .then(response => {
         setData(response.data.articles);
       })
