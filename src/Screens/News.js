@@ -24,6 +24,7 @@ const News = ({route}) => {
 
   useEffect(() => {
     getNews();
+    return () => {};
   });
 
   return (

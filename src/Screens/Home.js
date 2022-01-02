@@ -78,9 +78,53 @@ const Home = ({navigation}) => {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => navigation.navigate('News', {country: 'co'})}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>Top Headlines - Colombia</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('News', {country: 'cu'})}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>Top Headlines - Cuba</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('News', {country: 'cz'})}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>
+              Top Headlines - Czech Republic
+            </Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('News', {country: 'eg'})}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>Top Headlines - Egypt</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('News', {country: 'de'})}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>Top Headlines - Germany</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
           onPress={() => navigation.navigate('News', {country: 'in'})}>
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Top Headlines - India</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('News', {country: 'ch'})}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>Top Headlines - Switzerland</Text>
           </View>
         </TouchableOpacity>
 
